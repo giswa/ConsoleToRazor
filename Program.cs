@@ -1,5 +1,5 @@
 using System;
-
+using Microsoft.AspNetCore.Hosting;
 
 namespace myApp
 {
@@ -9,6 +9,9 @@ namespace myApp
         {
             Console.WriteLine("Hello World!");
 
+            var host = new WebHostBuilder();
         }
+
+    }
 
 }
