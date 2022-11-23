@@ -2,6 +2,7 @@ using System;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 namespace myApp
 {
@@ -23,6 +24,11 @@ namespace myApp
                     // in case nothing is found in static files folder, then
                     // Configuring the minimal app ( always return simple "hello world" without http header)
                     app.Run(context => context.Response.WriteAsync("Hello World!"));
+                })
+                .ConfigureLogging(logging =>
+                {   //IloggingBuilder logging
+                    logging.ClearProviders();
+                    logging.AddConsole();
                 }) ;
             
             Console.WriteLine("Host running");
