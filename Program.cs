@@ -13,9 +13,15 @@ namespace myApp
            // minimal implementation of a host
 
             var host = new WebHostBuilder()
+                .UseContentRoot(System.IO.Directory.GetCurrentDirectory()) // use the local wwwroot
                 .UseKestrel()
-                // Configuring the minimal app ( always return simple "hello world" without http header)
                 .Configure(app => {
+                    // IApplicationbuilder app
+                    // use static "wwwroot" files with default.html routing 
+                    app.UseDefaultFiles();
+                    app.UseStaticFiles();
+                    // in case nothing is found in static files folder, then
+                    // Configuring the minimal app ( always return simple "hello world" without http header)
                     app.Run(context => context.Response.WriteAsync("Hello World!"));
                 }) ;
             
