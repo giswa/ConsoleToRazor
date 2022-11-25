@@ -24,8 +24,7 @@ namespace myApp
                 })
                 .Configure(app => {
                     // IApplicationbuilder app
-                    // use static "wwwroot" files with default.html routing 
-                    app.UseDefaultFiles();
+                    // use static "wwwroot" files
                     app.UseStaticFiles();
                     app.UseDeveloperExceptionPage();
                     app.UseMvc();
